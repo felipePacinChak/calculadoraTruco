@@ -2,7 +2,7 @@ import { StyleSheet, ScrollView, ImageBackground } from 'react-native';
 import { DataTable } from 'react-native-paper';
 import { Text, View } from '@/components/Themed';
 
-const appBackground = {uri : "https://media.istockphoto.com/id/1068449720/photo/linen-fabric-texture.jpg?s=612x612&w=0&k=20&c=0FlTi7Nj_R5VEJi2RRtHY6wl53uJjk5UjgNEalqLLzg="}
+const appBackground = {uri : "https://media.istockphoto.com/id/629820716/photo/wood-texture-oak-wood-background-texture-background.jpg?s=612x612&w=0&k=20&c=6oLtCvt_B6e-lC0lSURRmchqYkPCWXX6L0Lz_jofOco="}
 export default function TabTwoScreen() {
   return (
     <ImageBackground source={appBackground} resizeMode="cover" style={styles.parentContainer}>

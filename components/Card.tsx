@@ -44,17 +44,17 @@ export default function Card({ suit, value,cardIndex, editing, muestra, pieza, m
     const styles = StyleSheet.create({
         cardContainer: {
             backgroundColor: muestra ? '#fcfb92' : "#fff",
-            borderColor: pieza ? "#fcba03" : mata ? "#30a9ff" : editing? "#F00" : "#000",
+            borderColor: editing? "#F00" : pieza ? "#fcba03" : mata ? "#30a9ff" : "#000",
             borderWidth: 2,
             borderRadius:10,
             alignItems: "center",
-            elevation: 12,
+            elevation: 24,
             shadowColor: "rgba(0,0,0,1)",
-            shadowOpacity: 1,
+            shadowOpacity: 0.58,
             shadowRadius: 20,
             shadowOffset:{
                 width: 0,
-                height: 0
+                height: 12
             },
             padding:5,
             height: "100%",
@@ -69,7 +69,7 @@ export default function Card({ suit, value,cardIndex, editing, muestra, pieza, m
         },
         cardSuit: {
           width: "80%",
-          height: "60%",
+          height: "50%",
           backgroundColor: " red",
           resizeMode: "contain",
           paddingBottom: 5

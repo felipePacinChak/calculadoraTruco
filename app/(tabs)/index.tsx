@@ -8,45 +8,22 @@ import CardEditForm from '@/components/CardEditForm';
 
 const appBackground = {uri : "https://media.istockphoto.com/id/629820716/photo/wood-texture-oak-wood-background-texture-background.jpg?s=612x612&w=0&k=20&c=6oLtCvt_B6e-lC0lSURRmchqYkPCWXX6L0Lz_jofOco="}
 export default function TabOneScreen() {
-  interface Board {
-    cards:{
-      muestra: { suit:string, value:number },
-      mano: { suit:string, value:number, pieza: boolean, mata:boolean}[],
-    },
-    points:{
-      envido: number,
-      flor: number
-    }
-  }
+
+  const [currentMuestra,setMuestra] = useState({ suit:"Oro", value:10 })
+  const [currentMano, setMano] = useState([{suit: "Basto", value: 10, pieza: false, mata:false}, {suit: "Copa", value: 6, pieza: false, mata:false}, {suit: "Espada", value: 4, pieza: false, mata:false}])
+  const [currentPoints, setPoints] = useState({
+    envido:6,
+    flor: -1
+  })
   
-  var currentBoard : Board = {
-    cards:{
-      muestra: { suit:"Oro", value:10 },
-      mano: [{suit: "Basto", value: 10, pieza: false, mata:false}, {suit: "Copa", value: 6, pieza: false, mata:false}, {suit: "Espada", value: 4, pieza: false, mata:false}]
-    },
-    points:{
-      envido: -1,
-      flor: 20
-    }
-  }
-  const [displayedBoard,setDisplayedBoard] = useState({
-    cards:{
-      muestra: { suit:"Oro", value:10 },
-      mano: [{suit: "Basto", value: 10, pieza: false, mata:false}, {suit: "Copa", value: 6, pieza: false, mata:false}, {suit: "Espada", value: 4, pieza: false, mata:false}]
-    },
-    points:{
-      envido: -1,
-      flor: 20
-    }
-})
   
   //State vars for the card editor, to be shown when a card is touched
   const [editingCard,setEditingCardIndex] = useState(-1)
   const [editError,setEditError] = useState(false)
 
-  const esPieza = (carta: { suit:string, value:number }) => {
-    const muestra = currentBoard.cards.muestra
+  const esPieza = (carta: { suit:string, value:number }, muestra: { suit:string, value:number }) => {
     const piezaValues = [2,4,5,11,10]
+    console.log(carta,muestra)
     return (carta.suit == muestra.suit) && (piezaValues.includes(carta.value) || (piezaValues.includes(muestra.value) && carta.value == 12))
   }
 
@@ -58,16 +35,16 @@ export default function TabOneScreen() {
   const puntosCarta = (carta: { suit:string, value:number, pieza: boolean }) => {
     if(carta.pieza){
       const puntosPiezas = [0,0,30,0,29,28,0,0,0,0,27,27]
-      return carta.value != 12 ? puntosPiezas[carta.value] : puntosPiezas[currentBoard.cards.muestra.value]
+      return carta.value != 12 ? puntosPiezas[carta.value] : puntosPiezas[currentMuestra.value]
     }else if([10,11,12].includes(carta.value)){
       return 0
     }
     return carta.value
   }
 
-  const calcularFlor = () => {
-    const piezas = currentBoard.cards.mano.filter((card) => card.pieza)
-    const comunes = currentBoard.cards.mano.filter((card) => !card.pieza)
+  const calcularFlor = (mano: {suit: string, value: number, pieza:boolean, mata:boolean}[]) => {
+    const piezas = currentMano.filter((card) => card.pieza)
+    const comunes = currentMano.filter((card) => !card.pieza)
 
     const distribucionPorPaloCartasComunes = [0,0,0,0]
 
@@ -81,7 +58,7 @@ export default function TabOneScreen() {
     //console.log(mano,piezas.length + Math.max(...distribucionPorPaloCartasComunes))
     if(piezas.length + Math.max(...distribucionPorPaloCartasComunes) < 3){ return -1;}
     //console.log(mano,"ES FLOR")
-    const puntosPorCarta = currentBoard.cards.mano.map(puntosCarta).sort(function(a, b){return b - a}) //Puntos de cada carta de mayor a menor
+    const puntosPorCarta = currentMano.map(puntosCarta).sort(function(a, b){return b - a}) //Puntos de cada carta de mayor a menor
     switch (piezas.length) {
       case 3: //Flor de 3 piezas
         return puntosPorCarta[0] + puntosPorCarta[1] % 10 + puntosPorCarta[2] % 10
@@ -102,10 +79,10 @@ export default function TabOneScreen() {
 
   }
 
-  const calcularEnvido = () => {
-    if(calcularFlor() >= 0){ return -1 }
-    const piezas = currentBoard.cards.mano.filter((card) => card.pieza)
-    const comunes = currentBoard.cards.mano.filter((card) => !card.pieza)
+  const calcularEnvido = (mano: {suit: string, value: number, pieza:boolean, mata:boolean}[]) => {
+    if(calcularFlor(mano) >= 0){ return -1 }
+    const piezas = mano.filter((card) => card.pieza)
+    const comunes = mano.filter((card) => !card.pieza)
     
     const distribucionPorPaloCartasComunes: { suit:string, value:number, pieza:boolean, mata: boolean }[][] = [[],[],[],[]]
     for (let i = 0; i < comunes.length; i++) {
@@ -115,7 +92,7 @@ export default function TabOneScreen() {
         }
       })
     }
-    const puntosPorCarta = currentBoard.cards.mano.map(puntosCarta).sort(function(a, b){return b - a}) //Puntos de cada carta de mayor a menor
+    const puntosPorCarta = mano.map(puntosCarta).sort(function(a, b){return b - a}) //Puntos de cada carta de mayor a menor
     console.log(distribucionPorPaloCartasComunes)
     if (piezas.length > 0 && Math.max(...distribucionPorPaloCartasComunes.map(val => val.length)) == 1) {
       console.log(puntosPorCarta)
@@ -134,14 +111,14 @@ export default function TabOneScreen() {
     const ordenPiezas = [2,4,5,11,10]
     const ordenMatas = [{ suit:"Espada", value:1 },{ suit:"Basto", value:1 },{ suit:"Espada", value:7 },{ suit:"Oro", value:7 }]
     const ordenResto = [3,2,1,12,11,10,7,6,5,4]
-    //console.log(currentBoard.cards.muestra)
-    var piezas = currentBoard.cards.mano.filter((card) => esPieza(card))
-    var matas = currentBoard.cards.mano.filter((card) => esMata(card))
-    var resto = currentBoard.cards.mano.filter((card) => !esMata(card) && !esPieza(card))
+    //console.log(currentMuestra)
+    var piezas = currentMano.filter((card) => card.pieza)
+    var matas = currentMano.filter((card) => card.mata)
+    var resto = currentMano.filter((card) => !card.mata && !card.pieza)
     console.log(piezas)
     piezas = piezas.sort(function(a, b){
-      const aPos = a.value == 12 ? ordenPiezas.indexOf(currentBoard.cards.muestra.value) : ordenPiezas.indexOf(a.value)
-      const bPos = b.value == 12 ? ordenPiezas. indexOf(currentBoard.cards.muestra.value) : ordenPiezas.indexOf(b.value)
+      const aPos = a.value == 12 ? ordenPiezas.indexOf(currentMuestra.value) : ordenPiezas.indexOf(a.value)
+      const bPos = b.value == 12 ? ordenPiezas. indexOf(currentMuestra.value) : ordenPiezas.indexOf(b.value)
       return aPos - bPos
     })
     matas = matas.sort(function(a, b){
@@ -155,12 +132,12 @@ export default function TabOneScreen() {
       return aPos - bPos
     })
     
-    currentBoard.cards.mano = piezas.concat(matas).concat(resto)
+    setMano(piezas.concat(matas).concat(resto))
     //console.log(currentboard)
   }
 
   const handleEditSubmit = (newSuit:string,newValue:number) => {
-    if(JSON.stringify(currentBoard.cards.muestra) == JSON.stringify({suit: newSuit, value: newValue}) || currentBoard.cards.mano.map(card => JSON.stringify(card)).includes(JSON.stringify({suit: newSuit, value: newValue}))){
+    if(currentMano.find((card) => card.suit == newSuit && card.value == newValue) || (currentMuestra.suit == newSuit && newValue == currentMuestra.value)){
       return ;
     }else{
       updateCard(newSuit,newValue)
@@ -170,24 +147,26 @@ export default function TabOneScreen() {
 
   const updateCard = (newSuit:string,newValue:number) => {
     var newCard = {suit: newSuit, value: newValue}
+    var newMano = currentMano
     if(editingCard == 0){ //Update muestra
-      currentBoard.cards.muestra = newCard
-      for (let i = 0; i < currentBoard.cards.mano.length; i++) { //Como cambia la muestra hay que reevaluar que cartas de la mano son pieza
-        currentBoard.cards.mano[i].pieza = esPieza(currentBoard.cards.mano[i])  
+      setMuestra(newCard)
+      for (let i = 0; i < newMano.length; i++) { //Como cambia la muestra hay que reevaluar que cartas de la mano son pieza
+        newMano[i].pieza = esPieza(newMano[i],newCard)  
       }
     }else if([1,2,3].includes(editingCard)){ //Update mano
-      currentBoard.cards.mano[editingCard-1] = {suit: newSuit, value: newValue, pieza: esPieza(newCard),mata: esMata(newCard) }
+      newMano[editingCard-1] = {suit: newSuit, value: newValue, pieza: esPieza(newCard,currentMuestra),mata: esMata(newCard) }
+      setMano(newMano)
     }else{
       return ;
     }
-    currentBoard.points.envido = calcularEnvido()
-    currentBoard.points.flor = calcularFlor()
+    setPoints({
+      envido: calcularEnvido(newMano),
+      flor: calcularFlor(newMano)
+    })
     //sortMano()
     //console.log(currentBoard.cards)
-    currentBoard.points.envido = calcularEnvido()
-    currentBoard.points.flor = calcularFlor()
-    console.log(currentBoard, currentBoard.cards.mano)
-    setDisplayedBoard(currentBoard)
+    console.log(currentMano)
+    
   }
 
   const getRandomCard = () => {
@@ -204,29 +183,34 @@ export default function TabOneScreen() {
 
   const randomizeCards = () => {
     //Muestra
-    currentBoard.cards.muestra = getRandomCard()
-    
+    const newMuestra = getRandomCard()
+    setMuestra(newMuestra)
+    setInterval(()=>{},300)
     //Mano / Hand
     var newMano : { suit:string, value:number,pieza:boolean, mata:boolean }[]= []
     for (let i = 0; i < 3; i++) {
       var newCard = getRandomCard()
-      while (newMano.find((card) => card.suit == newCard.suit && card.value == newCard.value) || (currentBoard.cards.muestra.suit == newCard.suit && newCard.value == currentBoard.cards.muestra.value))  {
+      while (newMano.find((card) => card.suit == newCard.suit && card.value == newCard.value) || (newMuestra.suit == newCard.suit && newCard.value == newMuestra.value))  {
+        console.log("HOLAAAA")
         newCard = getRandomCard()
       }
       //console.log(newCard)
-      newCard.pieza = esPieza(newCard)
+      newCard.pieza = esPieza(newCard,newMuestra)
       newCard.mata = esMata(newCard)
       newMano.push(newCard)
     }
     
-    currentBoard.cards.mano = newMano
-    currentBoard.points.envido = calcularEnvido()
-    currentBoard.points.flor = calcularFlor()
-    sortMano()
+    
+
+    
+    setPoints({
+      envido: calcularEnvido(newMano),
+      flor: calcularFlor(newMano)
+    })
+    setMano(newMano)
+    //sortMano()
     //console.log(currentBoard.cards)
-    currentBoard.points.envido = calcularEnvido()
-    currentBoard.points.flor = calcularFlor()
-    setDisplayedBoard(currentBoard)
+    
     //console.log(displayedBoard)
   }
 
@@ -238,7 +222,7 @@ export default function TabOneScreen() {
       <ImageBackground source={appBackground} resizeMode="cover" style={styles.container}>
 
       <View style={styles.muestraContainer}>
-        <Card suit= {displayedBoard.cards.muestra.suit} cardIndex={0} editing={editingCard == 0} value={displayedBoard.cards.muestra.value} muestra={true} pieza={false} mata={false} onCardPulse={setEditingCardIndex}></Card>
+        <Card suit= {currentMuestra.suit} cardIndex={0} editing={editingCard == 0} value={currentMuestra.value} muestra={true} pieza={false} mata={false} onCardPulse={setEditingCardIndex}></Card>
         <TouchableOpacity style={styles.randomButton} onPress={randomizeCards}>
           <Text style={{fontSize: 30, color: "#232", fontFamily: "Sono"}}>BARAJAR</Text>
         </TouchableOpacity>
@@ -246,15 +230,15 @@ export default function TabOneScreen() {
       </View>
       <View style={styles.handContainer}>
         <Pressable></Pressable>
-        <Card suit={displayedBoard.cards.mano[0].suit} cardIndex={1} editing={editingCard == 1} value={displayedBoard.cards.mano[0].value} muestra={false} pieza={displayedBoard.cards.mano[0].pieza} mata={displayedBoard.cards.mano[0].mata} onCardPulse={setEditingCardIndex}></Card>
-        <Card suit={displayedBoard.cards.mano[1].suit} cardIndex={2} editing={editingCard == 2} value={displayedBoard.cards.mano[1].value} muestra={false} pieza={displayedBoard.cards.mano[1].pieza} mata={displayedBoard.cards.mano[1].mata} onCardPulse={setEditingCardIndex}></Card>
-        <Card suit={displayedBoard.cards.mano[2].suit} cardIndex={3} editing={editingCard == 3} value={displayedBoard.cards.mano[2].value} muestra={false} pieza={displayedBoard.cards.mano[2].pieza} mata={displayedBoard.cards.mano[2].mata} onCardPulse={setEditingCardIndex}></Card>
+        <Card suit={currentMano[0].suit} cardIndex={1} editing={editingCard == 1} value={currentMano[0].value} muestra={false} pieza={currentMano[0].pieza} mata={currentMano[0].mata} onCardPulse={setEditingCardIndex}></Card>
+        <Card suit={currentMano[1].suit} cardIndex={2} editing={editingCard == 2} value={currentMano[1].value} muestra={false} pieza={currentMano[1].pieza} mata={currentMano[1].mata} onCardPulse={setEditingCardIndex}></Card>
+        <Card suit={currentMano[2].suit} cardIndex={3} editing={editingCard == 3} value={currentMano[2].value} muestra={false} pieza={currentMano[2].pieza} mata={currentMano[2].mata} onCardPulse={setEditingCardIndex}></Card>
       </View>
       {editingCard < 0 && <View style={styles.resultContainer}>
-        {displayedBoard.points.flor >= 0 && <Text style={styles.resultText}>RICA FLOR {displayedBoard.points.flor}</Text>}
-        {displayedBoard.points.envido >= 0 && <Text style={styles.resultText}>ENVIDO {displayedBoard.points.envido}</Text>}
+        {currentPoints.flor >= 0 && <Text style={styles.resultText}>RICA FLOR {currentPoints.flor}</Text>}
+        {currentPoints.envido >= 0 && <Text style={styles.resultText}>ENVIDO {currentPoints.envido}</Text>}
       </View>}
-      {editingCard>= 0 && <CardEditForm initialSuit='Basto' initialValue={5} cardIndex={editingCard} error={false} onSubmit={handleEditSubmit}></CardEditForm>}
+      {editingCard>= 0 && <CardEditForm initialSuit= {editingCard == 0 ? currentMuestra.suit : currentMano[editingCard-1].suit} initialValue={editingCard == 0 ? currentMuestra.value : currentMano[editingCard-1].value} cardIndex={editingCard} error={false} onSubmit={handleEditSubmit} onCancel={()=>setEditingCardIndex(-1)}></CardEditForm>}
       </ImageBackground> 
      
     

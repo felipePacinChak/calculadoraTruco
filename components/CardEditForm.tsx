@@ -14,7 +14,7 @@ import { shadow } from 'react-native-paper';
 
 
 
-export default function CardEditForm({ initialSuit, initialValue, cardIndex,  error, onSubmit}: { initialSuit: string, initialValue: number, cardIndex:number , error: boolean, onSubmit: (newSuit:string, newValue:number) => void}) {
+export default function CardEditForm({ initialSuit, initialValue, cardIndex,  error, onSubmit, onCancel}: { initialSuit: string, initialValue: number, cardIndex:number , error: boolean, onSubmit: (newSuit:string, newValue:number) => void,  onCancel: () => void}) {
     var [selectedSuit,setSelectedSuit] = useState(initialSuit)
     var [selectedValue,setSelectedValue] = useState(initialValue)
     
@@ -73,7 +73,10 @@ export default function CardEditForm({ initialSuit, initialValue, cardIndex,  er
     </View>
     <View style={[styles.inputPanelRow,{justifyContent:"space-evenly", paddingLeft:10}]}>
       <Pressable style={[styles.playSelectButton,{backgroundColor: "#F66", marginTop:15}]} onPress={()=>{onSubmit(selectedSuit,selectedValue)}}>
-        <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>ACTUALIZAR CARTA</Text>
+        <Text style={{fontSize: 15, color: "#232", fontFamily: "Sono"}}>ACTUALIZAR CARTA</Text>
+      </Pressable>
+      <Pressable style={[styles.playSelectButton,{backgroundColor: "#F66", marginTop:15}]} onPress={()=>{onCancel()}}>
+        <Text style={{fontSize: 15, color: "#232", fontFamily: "Sono"}}>CANCELAR</Text>
       </Pressable>
     </View>
     

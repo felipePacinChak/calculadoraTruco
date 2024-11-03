@@ -1,6 +1,5 @@
 import { StyleSheet, TouchableOpacity, ImageBackground, Pressable,TextInput } from 'react-native';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 import Card from '@/components/Card';
 import "./index.css"
@@ -20,7 +19,7 @@ interface Game {
   finished: boolean,
   won: boolean
 }
-const appBackground = {uri : "https://media.istockphoto.com/id/1068449720/photo/linen-fabric-texture.jpg?s=612x612&w=0&k=20&c=0FlTi7Nj_R5VEJi2RRtHY6wl53uJjk5UjgNEalqLLzg="}
+const appBackground = {uri : "https://media.istockphoto.com/id/629820716/photo/wood-texture-oak-wood-background-texture-background.jpg?s=612x612&w=0&k=20&c=6oLtCvt_B6e-lC0lSURRmchqYkPCWXX6L0Lz_jofOco="}
 export default function TabOneScreen() {
   
   
@@ -250,17 +249,19 @@ export default function TabOneScreen() {
   return (
    
       <ImageBackground source={appBackground} resizeMode="cover" style={styles.container}>
+
       <View style={styles.muestraContainer}>
-        <Card suit= {displayedCards.cards.muestra.suit} value={displayedCards.cards.muestra.value} muestra={true} pieza={false} mata={false}></Card>
+        <Card suit= {displayedCards.cards.muestra.suit} cardIndex={0} editing={false} value={displayedCards.cards.muestra.value} muestra={true} pieza={false} mata={false} onCardPulse={()=>{}}></Card>
         <TouchableOpacity style={styles.randomButton} onPress={randomizeCards}>
           <Text style={{fontSize: 30, color: "#232", fontFamily: "Sono"}}>BARAJAR</Text>
         </TouchableOpacity>
-        
+
       </View>
       <View style={styles.handContainer}>
-        <Card suit={displayedCards.cards.mano[0].suit} value={displayedCards.cards.mano[0].value} muestra={false} pieza={displayedCards.cards.mano[0].pieza} mata={displayedCards.cards.mano[0].mata}></Card>
-        <Card suit={displayedCards.cards.mano[1].suit} value={displayedCards.cards.mano[1].value} muestra={false} pieza={displayedCards.cards.mano[1].pieza} mata={displayedCards.cards.mano[1].mata}></Card>
-        <Card suit={displayedCards.cards.mano[2].suit} value={displayedCards.cards.mano[2].value} muestra={false} pieza={displayedCards.cards.mano[2].pieza} mata={displayedCards.cards.mano[2].mata}></Card>
+        <Pressable></Pressable>
+        <Card suit={displayedCards.cards.mano[0].suit} cardIndex={1} editing={false} value={displayedCards.cards.mano[0].value} muestra={false} pieza={displayedCards.cards.mano[0].pieza} mata={displayedCards.cards.mano[0].mata} onCardPulse={()=>{}}></Card>
+        <Card suit={displayedCards.cards.mano[1].suit} cardIndex={2} editing={false} value={displayedCards.cards.mano[1].value} muestra={false} pieza={displayedCards.cards.mano[1].pieza} mata={displayedCards.cards.mano[1].mata} onCardPulse={()=>{}}></Card>
+        <Card suit={displayedCards.cards.mano[2].suit} cardIndex={3} editing={false} value={displayedCards.cards.mano[2].value} muestra={false} pieza={displayedCards.cards.mano[2].pieza} mata={displayedCards.cards.mano[2].mata} onCardPulse={()=>{}}></Card>
       </View>
       {!displayedGame.finished && 
       <View style={styles.inputContainer}>
