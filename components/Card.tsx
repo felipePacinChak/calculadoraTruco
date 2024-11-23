@@ -1,66 +1,61 @@
-import React, { useEffect } from 'react';
-import DropShadow from "react-native-drop-shadow";  
+import React, { useLayoutEffect } from 'react';
+import {Animated, Easing, StyleProp, TextStyle, useAnimatedValue, ViewStyle} from 'react-native';
 import { StyleSheet, ImageBackground, Image, Pressable } from 'react-native';
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
-import { ExternalLink } from './ExternalLink';
-import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
-import icon_basto from '../assets/icon_basto.png'
-import icon_copa from '../assets/icon_copa.png'
-import icon_oro from '../assets/icon_oro.png'
-import icon_espada from '../assets/icon_espada.png'
 import './Card.css'
 
-import Colors from '@/constants/Colors';
-import { shadow } from 'react-native-paper';
-
-const suits : {name: string, icon:string}[] = [
+const suits : {name: string, icon:any}[] = [
     {
         name: "Basto",
-        icon: icon_basto
+        icon: require('../assets/icon_basto.png')
     },
     {
         name: "Copa",
-        icon: icon_copa
+        icon:  require('../assets/icon_copa.png')
     },
     {
         name: "Oro",
-        icon: icon_oro
+        icon:  require('../assets/icon_oro.png')
     },
     {
         name: "Espada",
-        icon: icon_espada
+        icon:  require('../assets/icon_espada.png')
     },
-    ]
-
-const image = {uri: 'https://ih1.redbubble.net/image.482914902.6331/farp,small,wall_ texture,product,750x1000.u2.jpg'};
+]
 
 
-export default function Card({ suit, value,cardIndex, editing, muestra, pieza, mata, onCardPulse }: { suit: string, value: number ,cardIndex:number, editing:boolean, muestra: boolean, pieza: boolean, mata: boolean,onCardPulse:(cardIndex:number)=>void}) {
+export default function Card({ suit, value,  cardIndex, editing, muestra, pieza, mata, disableAnimations = false, boxStyles,textStyles }: 
+    { suit: string, value: number , cardIndex: number ,editing:boolean, muestra: boolean, pieza: boolean, mata: boolean,disableAnimations: boolean,boxStyles?: StyleProp<ViewStyle>,textStyles?: StyleProp<TextStyle>}) {
+
+
     const suitElements = suits.filter((val) => val.name == suit)
     var suitImageSrc = suitElements.length > 0 ? suitElements[0].icon : ""
     var bottomText = [muestra,pieza,mata].some((val)=>val) ? ["Muestra", "Pieza", "Mata"][[muestra,pieza,mata].findIndex((val) => val)] : ""
     //console.log(suitImageSrc)
+    var positionOffsetXAnim = useAnimatedValue(disableAnimations ? 0 : 5000)
+    var positionOffsetYAnim = useAnimatedValue(disableAnimations ? 0 : -5000)
     const styles = StyleSheet.create({
-        cardContainer: {
-            backgroundColor: muestra ? '#fcfb92' : "#fff",
+        cardTouchContainer: {
+            height: "100%",
+            width: "100%",
+        },
+        cardContainer:{
+            width: "100%",
+            height: "100%",
+            backgroundColor: muestra ? '#F3D797' : "#F4F1E6",
             borderColor: editing? "#F00" : pieza ? "#fcba03" : mata ? "#30a9ff" : "#000",
             borderWidth: 2,
             borderRadius:10,
             alignItems: "center",
             elevation: 24,
             shadowColor: "rgba(0,0,0,1)",
-            shadowOpacity: 0.58,
             shadowRadius: 20,
             shadowOffset:{
                 width: 0,
                 height: 12
             },
             padding:5,
-            height: "100%",
-            width: "27%",
         },
-
         cardNumber: {
           alignSelf: "flex-start",
           fontFamily: "Sono",
@@ -80,15 +75,37 @@ export default function Card({ suit, value,cardIndex, editing, muestra, pieza, m
             fontWeight: "bold",
             fontStyle: "italic",   
         },
-});
+    });
+
+    useLayoutEffect(() => {
+        if(!disableAnimations){
+            positionOffsetXAnim.setValue(-5000)
+            positionOffsetYAnim.setValue(5000)
+            Animated.parallel([
+                Animated.timing(positionOffsetXAnim, {
+                    toValue: 0,
+                    duration: 350,
+                    delay: 350*cardIndex,
+                    useNativeDriver: true,
+                  }),
+                Animated.timing(positionOffsetYAnim, {
+                  toValue: 0,
+                  duration: 350,
+                  delay: 350*cardIndex,
+                  useNativeDriver: true,
+                }) 
+            ]).start();
+        }
+      }, [suit,value]);
     
     return (
         /* <DropShadow> */
-            <Pressable style={styles.cardContainer} onPress={()=>{onCardPulse(cardIndex)}}>
-                <Text style={styles.cardNumber}>{value}</Text>
-                <Image source={suitImageSrc} style={styles.cardSuit}></Image>
-                <Text style={styles.bottomText} >{bottomText}</Text>
-            </Pressable>
+                <Animated.View style={[styles.cardContainer,boxStyles,{transform:[{translateX:positionOffsetXAnim},{translateY:positionOffsetYAnim}]
+                }]}>
+                    <Text style={[styles.cardNumber,textStyles]}>{value}</Text>
+                    <Image source={suitImageSrc} style={styles.cardSuit}></Image>
+                    <Text style={styles.bottomText} >{bottomText}</Text>
+                </Animated.View>
         /* </DropShadow> */
     );
 }

@@ -43,7 +43,7 @@ export default function TabLayout() {
 
         }}
       />
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="juegopuntos"
         options={{
           title: 'Juego de adivinar puntos',
@@ -51,7 +51,7 @@ export default function TabLayout() {
           headerShown: false,
 
         }}
-      />
+      /> */}
       
     </Tabs>
   );

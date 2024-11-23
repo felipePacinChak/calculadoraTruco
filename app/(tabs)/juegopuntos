@@ -29,8 +29,8 @@ export default function TabOneScreen() {
       mano: [{suit: "Basto", value: 10, pieza: false, mata:false}, {suit: "Copa", value: 6, pieza: false, mata:false}, {suit: "Espada", value: 4, pieza: false, mata:false}]
     },
     points:{
-      envido: -1,
-      flor: 20
+      envido: 6,
+      flor: -1
     }
   }
   const [displayedCards,setDisplayedCards] = useState({

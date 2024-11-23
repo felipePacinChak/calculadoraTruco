@@ -18,64 +18,67 @@ export default function CardEditForm({ initialSuit, initialValue, cardIndex,  er
     var [selectedSuit,setSelectedSuit] = useState(initialSuit)
     var [selectedValue,setSelectedValue] = useState(initialValue)
     
+    const buttonColors = (selected: boolean) => {
+      return selected ? "rgba(109, 138, 139, 1)" : "rgba(130, 166, 167, 1)"
+    }
     return (
     <View style={styles.inputContainer}>
     <View style={styles.inputPanelRow}>
-      <Text>EDITAR {cardIndex == 0 ? "MUESTRA" : "MANO"}</Text>
+      <Text style={{color:"#000", fontFamily:"Sono", fontSize:20}}>EDITAR {cardIndex == 0 ? "MUESTRA" : "MANO"}</Text>
     </View>
     <View style={styles.inputPanelRow}>
-      <Pressable style={[styles.playSelectButton,{backgroundColor: selectedSuit == "Basto" ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedSuit("Basto")}}>
+      <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedSuit == "Basto")}]} onPress={()=>{setSelectedSuit("Basto")}}>
         <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>BASTO</Text>
       </Pressable>
-      <Pressable style={[styles.playSelectButton,{backgroundColor: selectedSuit == "Copa" ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedSuit("Copa")}}>
+      <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedSuit == "Copa")}]} onPress={()=>{setSelectedSuit("Copa")}}>
         <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>COPA</Text>
       </Pressable>
-      <Pressable style={[styles.playSelectButton,{backgroundColor: selectedSuit == "Oro" ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedSuit("Oro")}}>
+      <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedSuit == "Oro")}]} onPress={()=>{setSelectedSuit("Oro")}}>
         <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>ORO</Text>
       </Pressable>
-      <Pressable style={[styles.playSelectButton,{backgroundColor: selectedSuit == "Espada" ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedSuit("Espada")}}>
+      <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedSuit == "Espada")}]} onPress={()=>{setSelectedSuit("Espada")}}>
         <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>ESPADA</Text>
       </Pressable>
     </View>
     <View style={[styles.inputPanelRow,{justifyContent:"space-evenly", paddingLeft:10}]}>
-        <Pressable style={[styles.playSelectButton,{backgroundColor: selectedValue == 1 ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedValue(1)}}>
+        <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedValue == 1)}]} onPress={()=>{setSelectedValue(1)}}>
             <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>1</Text>
         </Pressable>
-        <Pressable style={[styles.playSelectButton,{backgroundColor: selectedValue == 2 ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedValue(2)}}>
+        <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedValue == 2)}]} onPress={()=>{setSelectedValue(2)}}>
           <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>2</Text>
         </Pressable>
-        <Pressable style={[styles.playSelectButton,{backgroundColor: selectedValue == 3 ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedValue(3)}}>
+        <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedValue == 3)}]} onPress={()=>{setSelectedValue(3)}}>
           <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>3</Text>
         </Pressable>
-        <Pressable style={[styles.playSelectButton,{backgroundColor: selectedValue == 4 ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedValue(4)}}>
+        <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedValue == 4)}]} onPress={()=>{setSelectedValue(4)}}>
           <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>4</Text>
         </Pressable>
-        <Pressable style={[styles.playSelectButton,{backgroundColor: selectedValue == 5 ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedValue(5)}}>
+        <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedValue == 5)}]} onPress={()=>{setSelectedValue(5)}}>
           <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>5</Text>
         </Pressable>
     </View>
     <View style={[styles.inputPanelRow,{justifyContent:"space-evenly", paddingLeft:10}]}>
-        <Pressable style={[styles.playSelectButton,{backgroundColor: selectedValue == 6 ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedValue(6)}}>
+        <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedValue == 6)}]} onPress={()=>{setSelectedValue(6)}}>
             <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>6</Text>
         </Pressable>
-        <Pressable style={[styles.playSelectButton,{backgroundColor: selectedValue == 7 ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedValue(7)}}>
+        <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedValue == 7)}]} onPress={()=>{setSelectedValue(7)}}>
           <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>7</Text>
         </Pressable>
-        <Pressable style={[styles.playSelectButton,{backgroundColor: selectedValue == 10 ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedValue(10)}}>
+        <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedValue == 10)}]} onPress={()=>{setSelectedValue(10)}}>
           <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>10</Text>
         </Pressable>
-        <Pressable style={[styles.playSelectButton,{backgroundColor: selectedValue == 11 ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedValue(11)}}>
+        <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedValue == 11)}]} onPress={()=>{setSelectedValue(11)}}>
           <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>11</Text>
         </Pressable>
-        <Pressable style={[styles.playSelectButton,{backgroundColor: selectedValue == 12 ? "rgba(66,135,245,1)" : "rgba(66,135,245,0.3)"}]} onPress={()=>{setSelectedValue(12)}}>
+        <Pressable style={[styles.suitSelectButton,{backgroundColor: buttonColors(selectedValue == 12)}]} onPress={()=>{setSelectedValue(12)}}>
           <Text style={{fontSize: 20, color: "#232", fontFamily: "Sono"}}>12</Text>
         </Pressable>
     </View>
     <View style={[styles.inputPanelRow,{justifyContent:"space-evenly", paddingLeft:10}]}>
-      <Pressable style={[styles.playSelectButton,{backgroundColor: "#F66", marginTop:15}]} onPress={()=>{onSubmit(selectedSuit,selectedValue)}}>
+      <Pressable style={[styles.suitSelectButton,{backgroundColor: "rgba(139, 122, 109, 1)", marginTop:15}]} onPress={()=>{onSubmit(selectedSuit,selectedValue)}}>
         <Text style={{fontSize: 15, color: "#232", fontFamily: "Sono"}}>ACTUALIZAR CARTA</Text>
       </Pressable>
-      <Pressable style={[styles.playSelectButton,{backgroundColor: "#F66", marginTop:15}]} onPress={()=>{onCancel()}}>
+      <Pressable style={[styles.suitSelectButton,{backgroundColor: "rgba(139, 122, 109, 1)", marginTop:15}]} onPress={()=>{onCancel()}}>
         <Text style={{fontSize: 15, color: "#232", fontFamily: "Sono"}}>CANCELAR</Text>
       </Pressable>
     </View>
@@ -100,7 +103,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "space-around"
     },
-    playSelectButton:{
+    suitSelectButton:{
       padding: 10,
       backgroundColor: "rgba(66,135,245,0.7)",
       borderRadius: 10,
@@ -108,13 +111,13 @@ const styles = StyleSheet.create({
     },
     inputContainer:{
       marginTop: 20,
-      backgroundColor: "rgba(20,53,105,0.9)",
+      backgroundColor: "#7A9E9F",
       justifyContent: "flex-start",
       alignItems: "center",
       width: "100%",
       paddingBottom: 15,
       borderColor: "#000",
-      borderWidth: 5,
+      borderWidth: 2,
       borderRadius: 15,
     },
   });

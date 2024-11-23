@@ -40,12 +40,12 @@ export default function TabTwoScreen() {
           <DataTable.Row>
             <DataTable.Cell><Text>11</Text></DataTable.Cell>
             <DataTable.Cell><Text>27</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Guiñada</Text></DataTable.Cell>
+            <DataTable.Cell><Text>Guiñada ojo derecho</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell><Text>10</Text></DataTable.Cell>
             <DataTable.Cell><Text>27</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Guiñada</Text></DataTable.Cell>
+            <DataTable.Cell><Text>Guiñada ojo izquierdo</Text></DataTable.Cell>
           </DataTable.Row>
 
           <DataTable.Header>
