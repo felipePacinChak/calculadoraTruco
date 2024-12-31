@@ -1,9 +1,15 @@
-import { StyleSheet, ScrollView, ImageBackground } from 'react-native';
+import { StyleSheet, ScrollView, ImageBackground, Dimensions } from 'react-native';
 import { Text, View } from '@/components/Themed';
 
 const appBackground = {
   uri: 'https://media.istockphoto.com/id/629820716/photo/wood-texture-oak-wood-background-texture-background.jpg?s=612x612&w=0&k=20&c=6oLtCvt_B6e-lC0lSURRmchqYkPCWXX6L0Lz_jofOco=',
 };
+
+const displayIsDesktop = () => {
+  const viewportSize = Dimensions.get('window')
+  console.log(viewportSize)
+  return viewportSize.width > viewportSize.height
+}
 
 const tableSections = [
   {
@@ -44,42 +50,67 @@ const tableSections = [
 
 export default function TabTwoScreen() {
   return (
-    <ImageBackground source={appBackground} resizeMode="cover" style={styles.parentContainer}>
-      <View style={styles.topSection}>
-        <Text style={styles.title}>Tabla de Cartas 🃏</Text>
-      </View>
-
-      <ScrollView contentContainerStyle={styles.container}>
-        {tableSections.map((section, sectionIndex) => (
-          <View key={sectionIndex} style={styles.section}>
-            <Text style={styles.sectionTitle}>{section.title}</Text>
-            <View style={styles.table}>
-              <View style={styles.row}>
-                <Text style={[styles.cell, styles.headerCell]}>CARTA</Text>
-                <Text style={[styles.cell, styles.headerCell]}>PUNTOS</Text>
-                <Text style={[styles.cell, styles.headerCell]}>SEÑA</Text>
-              </View>
-              {section.rows.map((row, rowIndex) => (
-                <View key={rowIndex} style={styles.row}>
-                  <Text style={styles.cell}>{row.carta}</Text>
-                  <Text style={styles.cell}>{row.puntos}</Text>
-                  <Text style={styles.cell}>{row.seña}</Text>
-                </View>
-              ))}
-            </View>
+    <View style={styles.parentContainer}>
+      <View style={styles.appContainer}>
+        <ImageBackground source={appBackground} resizeMode="cover" style={styles.imageContainer} imageStyle={{borderRadius: displayIsDesktop() ? 15 : 0}}>
+          <View style={styles.topSection}>
+            <Text style={styles.title}>Tabla de Cartas 🃏</Text>
           </View>
-        ))}
-      </ScrollView>
-    </ImageBackground>
+          <ScrollView contentContainerStyle={styles.container}>
+            {tableSections.map((section, sectionIndex) => (
+              <View key={sectionIndex} style={styles.section}>
+                <Text style={styles.sectionTitle}>{section.title}</Text>
+                <View style={styles.table}>
+                  <View style={styles.row}>
+                    <Text style={[styles.cell, styles.headerCell]}>CARTA</Text>
+                    <Text style={[styles.cell, styles.headerCell]}>PUNTOS</Text>
+                    <Text style={[styles.cell, styles.headerCell]}>SEÑA</Text>
+                  </View>
+                  {section.rows.map((row, rowIndex) => (
+                    <View key={rowIndex} style={styles.row}>
+                      <Text style={styles.cell}>{row.carta}</Text>
+                      <Text style={styles.cell}>{row.puntos}</Text>
+                      <Text style={styles.cell}>{row.seña}</Text>
+                    </View>
+                  ))}
+                </View>
+              </View>
+            ))}
+          </ScrollView>
+        </ImageBackground> 
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   parentContainer: {
     flex: 1,
+    backgroundColor: "#fff",
+    padding:0,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  appContainer: {
+    width:  displayIsDesktop() ? "40%" : "100%",
+    height: displayIsDesktop() ? "90%" : "100%",
+    padding:0,
+    
+    borderRadius: displayIsDesktop() ? 20 : 0,
+    shadowColor: "rgba(0,0,0,1)",
+    shadowRadius: 50,
+    
+  },
+  imageContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding:0,
+    backgroundColor: 'white',
   },
   container: {
-    paddingBottom: 20,
+    paddingBottom:  20,
   },
   topSection: {
     width: '100%',
@@ -119,12 +150,13 @@ const styles = StyleSheet.create({
   cell: {
     flex: 1,
     fontSize: 14,
-    color: '#000', // Black text for table cells
-    backgroundColor:"rgba(256,256,256,0.3)",
+    color: '#fff', // Black text for table cells
+    backgroundColor:"rgba(0,0,0,0.5)",
     padding: 8,
     textAlign: 'center',
   },
   headerCell: {
+    color: '#000',
     fontWeight: 'bold',
     backgroundColor: '#f5f5f5', // Light gray background for headers
   },
