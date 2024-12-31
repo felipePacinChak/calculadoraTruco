@@ -14,8 +14,8 @@ import { shadow } from 'react-native-paper';
 
 
 export default function PlayResultPanel({ play, points}: { play: string, points: number}) {
-    var panelOpacityAnim = useAnimatedValue(0)
-    var pointsValueAnim = useAnimatedValue(10)
+    var panelOpacityAnim = 1//useAnimatedValue(0)
+    var pointsValueAnim = 10//useAnimatedValue(10)
     
     const styles = StyleSheet.create({
         resultContainer:{
@@ -45,7 +45,7 @@ export default function PlayResultPanel({ play, points}: { play: string, points:
          }
       })
 
-    useLayoutEffect(() => {
+    /* useLayoutEffect(() => {
         panelOpacityAnim.setValue(0)
         Animated.timing(panelOpacityAnim, {
             toValue: 1,
@@ -53,7 +53,7 @@ export default function PlayResultPanel({ play, points}: { play: string, points:
             delay: 1400,
             useNativeDriver: true,
         }).start();
-      }, [play,points]);
+      }, [play,points]); */
     
     return (
     <Animated.View style={[styles.resultContainer,{opacity: panelOpacityAnim, }]}>

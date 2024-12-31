@@ -32,8 +32,8 @@ export default function Card({ suit, value,  cardIndex, editing, muestra, pieza,
     var suitImageSrc = suitElements.length > 0 ? suitElements[0].icon : ""
     var bottomText = [muestra,pieza,mata].some((val)=>val) ? ["Muestra", "Pieza", "Mata"][[muestra,pieza,mata].findIndex((val) => val)] : ""
     //console.log(suitImageSrc)
-    var positionOffsetXAnim = useAnimatedValue(disableAnimations ? 0 : 5000)
-    var positionOffsetYAnim = useAnimatedValue(disableAnimations ? 0 : -5000)
+    var positionOffsetXAnim = 0//useAnimatedValue(disableAnimations ? 0 : 5000)
+    var positionOffsetYAnim = 0//useAnimatedValue(disableAnimations ? 0 : -5000)
     const styles = StyleSheet.create({
         cardTouchContainer: {
             height: "100%",
@@ -77,7 +77,7 @@ export default function Card({ suit, value,  cardIndex, editing, muestra, pieza,
         },
     });
 
-    useLayoutEffect(() => {
+    /* useLayoutEffect(() => {
         if(!disableAnimations){
             positionOffsetXAnim.setValue(-5000)
             positionOffsetYAnim.setValue(5000)
@@ -97,7 +97,7 @@ export default function Card({ suit, value,  cardIndex, editing, muestra, pieza,
             ]).start();
         }
       }, [suit,value]);
-    
+     */
     return (
         /* <DropShadow> */
                 <Animated.View style={[styles.cardContainer,boxStyles,{transform:[{translateX:positionOffsetXAnim},{translateY:positionOffsetYAnim}]

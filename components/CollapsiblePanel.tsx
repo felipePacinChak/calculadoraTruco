@@ -48,7 +48,7 @@ export default function CollapsiblePanel({title, children}: {title: string, chil
             elevation: 12,
             shadowColor: "rgba(0,0,0,1)",
             shadowOpacity: 1,
-            shadowRadius: 200,
+            shadowRadius: 20,
             shadowOffset:{
                 width: 0,
                 height: 0

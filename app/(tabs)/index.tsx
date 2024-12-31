@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity, ImageBackground, Pressable } from 'react-native';
+import { StyleSheet, TouchableOpacity, ImageBackground, Pressable,Dimensions } from 'react-native';
 
 import { Text, View } from '@/components/Themed';
 import Card from '@/components/Card';
@@ -9,6 +9,10 @@ import PlayResultPanel from '@/components/PlayResultPanel';
 import CollapsiblePanel from '@/components/CollapsiblePanel';
 import ExplanationContent from '@/components/ExplanationContent';
 
+const displayIsDesktop = () => {
+  const viewportSize = Dimensions.get('window')
+  return viewportSize.width > viewportSize.height
+}
 
 const appBackground = {uri : "https://media.istockphoto.com/id/629820716/photo/wood-texture-oak-wood-background-texture-background.jpg?s=612x612&w=0&k=20&c=6oLtCvt_B6e-lC0lSURRmchqYkPCWXX6L0Lz_jofOco="}
 export default function TabOneScreen() {
@@ -19,6 +23,7 @@ export default function TabOneScreen() {
   const [currentPoints, setPoints] = useState(6)
   const [explanationSumTerms, setexplanationSumTerms] = useState([{card:{suit: "Basto", value:6},points:5 },{card:{suit: "Oro", value:7},points:7 },{card:null,points:20 }])
   
+
   useEffect(() => {
     actualizarJugada(currentMano);
     console.log(explanationSumTerms)
@@ -202,8 +207,9 @@ export default function TabOneScreen() {
   
 
   return (
-   
-      <ImageBackground source={appBackground} resizeMode="cover" style={styles.container}>
+    <View style={styles.parentContainer}>
+      <View style={styles.appContainer}>
+      <ImageBackground source={appBackground} resizeMode="cover" style={styles.imageContainer} imageStyle={{borderRadius: displayIsDesktop() ? 15 : 0}}>
 
       <View style={styles.muestraContainer}>
         <Pressable style={styles.cardContainer} onPress={()=>{setEditingCardIndex(0)}}>
@@ -239,19 +245,34 @@ export default function TabOneScreen() {
         <CardEditForm initialSuit= {editingCard == 0 ? currentMuestra.suit : currentMano[editingCard-1].suit} initialValue={editingCard == 0 ? currentMuestra.value : currentMano[editingCard-1].value} cardIndex={editingCard} error={false} onSubmit={handleEditSubmit} onCancel={()=>setEditingCardIndex(-1)}></CardEditForm>
         }
       </ImageBackground> 
-     
+      </View>
+      </View>
+      
     
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  parentContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  appContainer: {
+    width:  displayIsDesktop() ? "40%" : "100%",
+    height: "90%",
+    borderRadius: displayIsDesktop() ? 20 : 0,
+    shadowColor: "rgba(0,0,0,1)",
+    shadowRadius: 50,
+    
+  },
+  imageContainer: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'flex-start',
     padding:20,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   muestraContainer: {
     width: "100%",
