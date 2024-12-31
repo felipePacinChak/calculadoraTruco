@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#000', // Black text
+    color: '#fff', // White text
   },
   section: {
     marginVertical: 10,
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontWeight: 'bold',
     fontSize: 16,
-    color: '#000', // Black text for section titles
+    color: '#fff', // White text for section titles
     marginBottom: 8,
     textAlign: 'center',
   },
