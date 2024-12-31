@@ -220,7 +220,7 @@ export default function TabOneScreen() {
           <TouchableOpacity style={styles.randomButton} onPress={randomizeCards}>
             <Text style={{fontSize: 30, color: "#323", fontFamily: "Sono"}}>BARAJAR</Text>
           </TouchableOpacity>
-          <Text style={{marginTop: 3, fontSize:15, fontWeight: 'bold'}}>O tocar carta para editar</Text>
+          <Text style={{marginTop: 3, fontSize:15, color:'#000',fontWeight: 'bold'}}>O tocar carta para editar</Text>
         </View>
         
       </View>
