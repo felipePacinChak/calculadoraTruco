@@ -79,7 +79,7 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para má
 
 ## Contacto 📧
 
-Si tienes preguntas o sugerencias, no dudes en contactar a **Felipe Chak** a través de [GitHub](https://github.com/felipechak).
+Si tienes preguntas o sugerencias, no dudes en contactarme a **felipepacin7@gmail.com** a través de [GitHub](https://github.com/felipechak).
 
 ---
 
