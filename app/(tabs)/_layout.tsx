@@ -27,7 +27,7 @@ export default function TabLayout() {
         headerShown: false,
       }}>
       <Tabs.Screen
-        name="two"
+        name="tabla"
         options={{
           title: 'Tabla de cartas',
           tabBarIcon: ({ color }) => <TabBarIcon name="table" color={color} />,
