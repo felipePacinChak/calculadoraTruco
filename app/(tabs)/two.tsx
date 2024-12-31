@@ -23,29 +23,29 @@ export default function TabTwoScreen() {
           </DataTable.Header>
 
           <DataTable.Row>
-            <DataTable.Cell><Text>2</Text></DataTable.Cell>
-            <DataTable.Cell><Text>30</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Levanto Cejas</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>2</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>30</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>Levanto Cejas</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
-            <DataTable.Cell><Text>4</Text></DataTable.Cell>
-            <DataTable.Cell><Text>29</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Beso</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>4</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>29</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>Beso</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
-            <DataTable.Cell><Text>5</Text></DataTable.Cell>
-            <DataTable.Cell><Text>28</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Frunzo nariz</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>5</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>28</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>Frunzo nariz</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
-            <DataTable.Cell><Text>11</Text></DataTable.Cell>
-            <DataTable.Cell><Text>27</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Guiñada ojo derecho</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>11</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>27</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>Guiñada ojo derecho</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
-            <DataTable.Cell><Text>10</Text></DataTable.Cell>
-            <DataTable.Cell><Text>27</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Guiñada ojo izquierdo</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>10</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>27</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>Guiñada ojo izquierdo</Text></DataTable.Cell>
           </DataTable.Row>
 
           <DataTable.Header>
@@ -53,78 +53,78 @@ export default function TabTwoScreen() {
           </DataTable.Header>
 
           <DataTable.Row>
-            <DataTable.Cell><Text>1 de Espada ⚔️</Text></DataTable.Cell>
-            <DataTable.Cell><Text>1</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Boca Derecha</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>1 de Espada ⚔️</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>1</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>Boca Derecha</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
-            <DataTable.Cell><Text>1 de Basto 🦯</Text></DataTable.Cell>
-            <DataTable.Cell><Text>1</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Boca Derecha</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>1 de Basto 🦯</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>1</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>Boca Derecha</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
-            <DataTable.Cell><Text>7 de Espada ⚔️</Text></DataTable.Cell>
-            <DataTable.Cell><Text>7</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Boca Izquierda</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>7 de Espada ⚔️</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>7</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>Boca Izquierda</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
-            <DataTable.Cell><Text>7 de Oro 🪙</Text></DataTable.Cell>
-            <DataTable.Cell><Text>7</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Boca Izquierda</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>7 de Oro 🪙</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>7</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>Boca Izquierda</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Header>
             <DataTable.Title><Text style={styles.tableTitle}>COMUNES 🤏</Text></DataTable.Title>
           </DataTable.Header>
 
           <DataTable.Row>
-            <DataTable.Cell><Text>3</Text></DataTable.Cell>
-            <DataTable.Cell><Text>3</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Muerdo Labio</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>3</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>3</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>Muerdo Labio</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
-            <DataTable.Cell><Text>2</Text></DataTable.Cell>
-            <DataTable.Cell><Text>2</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Abro Boca</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>2</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>2</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>Abro Boca</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
-            <DataTable.Cell><Text>1</Text></DataTable.Cell>
-            <DataTable.Cell><Text>1</Text></DataTable.Cell>
-            <DataTable.Cell><Text>Saco Lengua</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>1</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>1</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.tableText}>Saco Lengua</Text></DataTable.Cell>
           </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell><Text>12</Text></DataTable.Cell>
-              <DataTable.Cell><Text>0</Text></DataTable.Cell>
-              <DataTable.Cell><Text>Cierro ojos</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>12</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>0</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>Cierro ojos</Text></DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell><Text>11</Text></DataTable.Cell>
-              <DataTable.Cell><Text>0</Text></DataTable.Cell>
-              <DataTable.Cell><Text>Cierro ojos</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>11</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>0</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>Cierro ojos</Text></DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell><Text>10</Text></DataTable.Cell>
-              <DataTable.Cell><Text>0</Text></DataTable.Cell>
-              <DataTable.Cell><Text>Cierro ojos</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>10</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>0</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>Cierro ojos</Text></DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell><Text>7</Text></DataTable.Cell>
-              <DataTable.Cell><Text>7</Text></DataTable.Cell>
-              <DataTable.Cell><Text>Cierro ojos</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>7</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>7</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>Cierro ojos</Text></DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell><Text>6</Text></DataTable.Cell>
-              <DataTable.Cell><Text>6</Text></DataTable.Cell>
-              <DataTable.Cell><Text>Cierro ojos</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>6</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>6</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>Cierro ojos</Text></DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell><Text>5</Text></DataTable.Cell>
-              <DataTable.Cell><Text>5</Text></DataTable.Cell>
-              <DataTable.Cell><Text>Cierro ojos</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>5</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>5</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>Cierro ojos</Text></DataTable.Cell>
             </DataTable.Row>
             <DataTable.Row>
-              <DataTable.Cell><Text>4</Text></DataTable.Cell>
-              <DataTable.Cell><Text>4</Text></DataTable.Cell>
-              <DataTable.Cell><Text>Cierro ojos</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>4</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>4</Text></DataTable.Cell>
+              <DataTable.Cell><Text style={styles.tableText}>Cierro ojos</Text></DataTable.Cell>
             </DataTable.Row>
 
 
@@ -144,6 +144,9 @@ const styles = StyleSheet.create({
   centerAlign:{
     alignItems: 'center'
   },
+  tableText:{
+    color: 'white'
+  },
   topSection:{
     width: "100%",
     height: "15%",
@@ -158,6 +161,7 @@ const styles = StyleSheet.create({
   tableTitle:{
     fontWeight: "bold",
     textAlign: "center",
+    color:"white"
   },
   title: {
     marginTop: 50,
