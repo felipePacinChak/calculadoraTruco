@@ -2,7 +2,7 @@ import { StyleSheet, ScrollView, ImageBackground, Dimensions } from 'react-nativ
 import { Text, View } from '@/components/Themed';
 
 const appBackground = {
-  uri: 'https://media.istockphoto.com/id/629820716/photo/wood-texture-oak-wood-background-texture-background.jpg?s=612x612&w=0&k=20&c=6oLtCvt_B6e-lC0lSURRmchqYkPCWXX6L0Lz_jofOco=',
+  uri: 'https://img.freepik.com/free-photo/black-fabric-textile-textured-background_53876-108368.jpg',
 };
 
 const displayIsDesktop = () => {
