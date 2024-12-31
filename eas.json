@@ -19,7 +19,12 @@
       "distribution": "internal"
     },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "web": {
+        "output": "static",
+        "bundler": "metro"
+      },
+      "distribution": "public"
     }
   },
   "submit": {
