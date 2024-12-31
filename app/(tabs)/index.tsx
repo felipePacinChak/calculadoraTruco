@@ -216,9 +216,12 @@ export default function TabOneScreen() {
           <Card suit={currentMuestra.suit} editing={editingCard == 0} value={currentMuestra.value} cardIndex={0} 
           muestra={true} pieza={false} mata={false} disableAnimations={false} boxStyles={{width:"100%", height:"100%"}}></Card>
         </Pressable>
-        <TouchableOpacity style={styles.randomButton} onPress={randomizeCards}>
-          <Text style={{fontSize: 30, color: "#323", fontFamily: "Sono"}}>BARAJAR</Text>
-        </TouchableOpacity>
+        <View style={{flexDirection: "column"}}>
+          <TouchableOpacity style={styles.randomButton} onPress={randomizeCards}>
+            <Text style={{fontSize: 30, color: "#323", fontFamily: "Sono"}}>BARAJAR</Text>
+          </TouchableOpacity>
+          <Text style={{marginTop: 3, fontSize:15, fontWeight: 'bold'}}>O tocar carta para editar</Text>
+        </View>
         
       </View>
       <View style={styles.handContainer}>
@@ -260,7 +263,8 @@ const styles = StyleSheet.create({
   },
   appContainer: {
     width:  displayIsDesktop() ? "40%" : "100%",
-    height: "90%",
+    height: displayIsDesktop() ? "90%" : "100%",
+    backgroundColor: "rgba(0,0,0,0)",
     borderRadius: displayIsDesktop() ? 20 : 0,
     shadowColor: "rgba(0,0,0,1)",
     shadowRadius: 50,
