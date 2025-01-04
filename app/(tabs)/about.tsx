@@ -99,11 +99,14 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         padding:  20,
+        paddingTop: 10,
+        paddingBottom:2,
         justifyContent: 'flex-start',
         backgroundColor: 'white'
       },
       scrollContainer: {
         width: "75%",
+        height: "100%",
         alignSelf: "center"
       },
       title: {
