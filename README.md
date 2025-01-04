@@ -35,6 +35,16 @@ This is a mobile application designed to make it easier to count points in the p
 3. Enjoy a game without confusion when counting points.
 
 ---
+## Versión Web 🌐
+
+¡Ahora puedes usar la aplicación desde cualquier navegador! Una versión web en vivo está disponible desde el repositorio en:
+[https://calculadoratruco.onrender.com/](https://calculadoratruco.onrender.com/)
+
+## Web Version 🌐
+
+You can now use the application from any browser! A live web version is available from the repository at:
+[https://calculadoratruco.onrender.com/](https://calculadoratruco.onrender.com/)
+
 
 ## Tecnologías Utilizadas 🛠️
 
