@@ -1,8 +1,8 @@
 # App Calculadora Truco 🃏📱
 
-Esta es una aplicación móvil diseñada para facilitar el conteo de puntos en el popular juego Uruguayo de **Truco**. Con una interfaz intuitiva y una experiencia rápida, esta app es la herramienta perfecta para los amantes del Truco.
+Esta es una aplicación móvil diseñada para facilitar el conteo de puntos en el popular juego Uruguayo de **Truco**. Con una interfaz intuitiva y una experiencia rápida, esta app es la herramienta perfecta para los aprendices del Truco.
 
-This is a mobile application designed to make it easier to count points in the popular Uruguayan game of **Truco**. With an intuitive interface and a fast experience, this app is the perfect tool for Truco lovers.
+This is a mobile application designed to make it easier to count points in the popular Uruguayan game of **Truco**. With an intuitive interface and a fast experience, this app is the perfect tool for Truco beginners.
 
 ---
 
