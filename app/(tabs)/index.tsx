@@ -1,5 +1,4 @@
-import { StyleSheet, TouchableOpacity, ImageBackground, Pressable,Dimensions } from 'react-native';
-
+import { StyleSheet, TouchableOpacity, ImageBackground, Pressable,Dimensions} from 'react-native';
 import { Text, View } from '@/components/Themed';
 import Card from '@/components/Card';
 import "./index.css"
@@ -7,14 +6,15 @@ import { useState, useEffect } from "react";
 import CardEditForm from '@/components/CardEditForm';
 import PlayResultPanel from '@/components/PlayResultPanel';
 import CollapsiblePanel from '@/components/CollapsiblePanel';
-import ExplanationContent from '@/components/ExplanationContent';
+import ExplanationContent from '@/components/ExplanationContent'
 
 const displayIsDesktop = () => {
   const viewportSize = Dimensions.get('window')
   return viewportSize.width > viewportSize.height
 }
 
-const appBackground = {uri : "https://img.freepik.com/free-photo/black-fabric-textile-textured-background_53876-108368.jpg"}
+const appBackground = {uri: 'https://i.ibb.co/gWc55sV/app-Background.jpg'}
+console.log(appBackground.uri)
 export default function TabOneScreen() {
 
   const [currentMuestra,setMuestra] = useState({ key: "ORO", suit:"Oro", value:10 })
@@ -209,7 +209,7 @@ export default function TabOneScreen() {
   return (
     <View style={styles.parentContainer}>
       <View style={styles.appContainer}>
-      <ImageBackground source={appBackground} resizeMode="cover" style={styles.imageContainer} imageStyle={{borderRadius: displayIsDesktop() ? 15 : 0}}>
+      <ImageBackground source={appBackground}  resizeMode="stretch" style={styles.imageContainer} imageStyle={{borderRadius: displayIsDesktop() ? 15 : 0}}>
 
       <View style={styles.muestraContainer}>
         <Pressable style={styles.cardContainer} onPress={()=>{setEditingCardIndex(0)}}>
@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     padding:20,
-    backgroundColor: 'white',
+    backgroundColor: '#444',
   },
   muestraContainer: {
     width: "100%",

@@ -1,9 +1,7 @@
 import { StyleSheet, ScrollView, ImageBackground, Dimensions } from 'react-native';
 import { Text, View } from '@/components/Themed';
 
-const appBackground = {
-  uri: 'https://img.freepik.com/free-photo/black-fabric-textile-textured-background_53876-108368.jpg',
-};
+const appBackground = {uri: 'https://i.ibb.co/gWc55sV/app-Background.jpg'}
 
 const displayIsDesktop = () => {
   const viewportSize = Dimensions.get('window')
