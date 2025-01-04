@@ -1,7 +1,8 @@
-
 # App Calculadora Truco 🃏📱
 
-Esta es una aplicación móvil diseñada para facilitar el conteo de puntos en el popular juego de cartas **Truco**. Con una interfaz intuitiva y una experiencia rápida, esta app es la herramienta perfecta para los amantes del Truco.
+Esta es una aplicación móvil diseñada para facilitar el conteo de puntos en el popular juego Uruguayo de **Truco**. Con una interfaz intuitiva y una experiencia rápida, esta app es la herramienta perfecta para los amantes del Truco.
+
+This is a mobile application designed to make it easier to count points in the popular Uruguayan game of **Truco**. With an intuitive interface and a fast experience, this app is the perfect tool for Truco lovers.
 
 ---
 
@@ -9,48 +10,45 @@ Esta es una aplicación móvil diseñada para facilitar el conteo de puntos en e
 
 - **Puntaje rápido y preciso**: Lleva el control de los puntos de manera eficiente.
 - **Interfaz amigable**: Fácil de usar y diseñada para minimizar distracciones durante el juego.
-- **Soporte multiplataforma**: Compatible con dispositivos Android (React Native).
+- **Soporte multiplataforma**: Se puede construir tanto a Android como a una Web app (React Native).
 - **Personalización**: Diseños y colores atractivos que mejoran la experiencia del usuario.
 
----
+## Features ✨
 
-## Instalación 🚀
-
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/felipechak/appCalculadoraTruco.git
-   ```
-2. Navega al directorio del proyecto:
-   ```bash
-   cd appCalculadoraTruco
-   ```
-3. Instala las dependencias:
-   ```bash
-   npm install
-   ```
-4. Ejecuta la aplicación:
-   ```bash
-   npm start
-   ```
-5. Para ejecutarlo en un dispositivo o emulador, sigue las instrucciones de React Native para tu sistema operativo.
+- **Quick and accurate scoring**: Keep track of points efficiently.
+- **User-friendly interface**: Easy to use and designed to minimize distractions during the game.
+- **Multiplatform support**: Can be built for both Android and as a Web app (React Native).
+- **Customization**: Attractive designs and colors to enhance the user experience.
 
 ---
 
-## Uso 🕹️
+## Uso 🔹️
 
 1. Abre la aplicación en tu dispositivo.
-2. Configura los equipos y nombres si es necesario.
-3. Ingresa los puntos a medida que avanza el juego.
-4. Disfruta de una partida sin confusiones al contar los puntos.
+2. En cada repartida actualiza tanto la muestra como la carta de tu mano para obtener un cálculo y explicación precisos.
+3. Disfruta de una partida sin confusiones al contar los puntos.
+
+## Usage 🔹️
+
+1. Open the app on your device.
+2. Update both the sample and the card in your hand for an accurate calculation and explanation for each hand dealt.
+3. Enjoy a game without confusion when counting points.
 
 ---
 
 ## Tecnologías Utilizadas 🛠️
 
 - **React Native**: Framework principal para el desarrollo móvil.
-- **JavaScript**: Lenguaje base del proyecto.
+- **Typescript**: Lenguaje base del proyecto.
 - **Flexbox**: Diseño adaptable para cualquier tamaño de pantalla.
 - **Expo**: Para simplificar el desarrollo y pruebas.
+
+## Technologies Used 🛠️
+
+- **React Native**: Main framework for mobile development.
+- **Typescript**: Base language of the project.
+- **Flexbox**: Adaptive design for any screen size.
+- **Expo**: To simplify development and testing.
 
 ---
 
@@ -69,18 +67,33 @@ Esta es una aplicación móvil diseñada para facilitar el conteo de puntos en e
    ```
 4. Envía un pull request.
 
----
+## Contributions 🤝
 
-## Licencia 📜
+Contributions are welcome! If you have ideas to improve the app:
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+1. Fork the repository.
+2. Create a branch for your feature:
+   ```bash
+   git checkout -b new-feature
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Added new feature"
+   ```
+4. Submit a pull request.
 
 ---
 
 ## Contacto 📧
 
-Si tienes preguntas o sugerencias, no dudes en contactarme a **felipepacin7@gmail.com** a través de [GitHub](https://github.com/felipechak).
+Si tienes preguntas o sugerencias, no dudes en contactarme a **felipepacin7@gmail.com** o a través de [GitHub](https://github.com/felipechak).
+
+## Contact 📧
+
+If you have questions or suggestions, feel free to contact me at **felipepacin7@gmail.com** or via [GitHub](https://github.com/felipechak).
 
 ---
 
-¡Gracias por usar la App Calculadora Truco! 🎉
+¡Gracias por usar la Calculadora Truco! 🎉
+
+Thank you for using the Truco Calculator! 🎉
