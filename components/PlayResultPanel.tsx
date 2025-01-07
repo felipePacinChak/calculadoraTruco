@@ -57,7 +57,7 @@ export default function PlayResultPanel({ play, points}: { play: string, points:
     
     return (
     <Animated.View style={[styles.resultContainer,{opacity: panelOpacityAnim, }]}>
-        <Text style={[styles.innerText]}>{play == "FLOR" ? "RICA FLOR" : "ENVIDO"} {points}</Text>
+        <Text style={[styles.innerText]}>{play == "FLOR" ? "FLOR" : "ENVIDO"} {points}</Text>
     </Animated.View>)
 }
 
