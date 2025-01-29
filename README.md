@@ -96,11 +96,11 @@ Contributions are welcome! If you have ideas to improve the app:
 
 ## Contacto 📧
 
-Si tienes preguntas o sugerencias, no dudes en contactarme a **felipepacin7@gmail.com** o a través de [GitHub](https://github.com/felipechak).
+Si tienes preguntas o sugerencias, no dudes en contactarme a través de [GitHub](https://github.com/felipechak).
 
 ## Contact 📧
 
-If you have questions or suggestions, feel free to contact me at **felipepacin7@gmail.com** or via [GitHub](https://github.com/felipechak).
+If you have questions or suggestions, feel free to contact me via [GitHub](https://github.com/felipechak).
 
 ---
 
