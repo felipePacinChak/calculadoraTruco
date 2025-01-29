@@ -41,15 +41,6 @@ export default function TabLayout() {
 
         }}
       />
-      <Tabs.Screen
-        name="about"
-        options={{
-          title: 'Acerca de',
-          tabBarIcon: ({ color }) => <TabBarIcon name="information-outline" color={color} />,
-          headerShown: false,
-
-        }}
-      />
       {/* <Tabs.Screen
         name="juegopuntos"
         options={{
